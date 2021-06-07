@@ -11,6 +11,18 @@
 </style>
 <body style="background-color:turquoise;">
   <div>
+     <h2 align="center"> {{question.question_name}} <h2>
+         <ul>
+             {% for answer in all_answers_for_question %}
+               <div class="panel panel-default">
+                   <div class="panel-body">
+                     <h4 style="margin-left:1%">
+                       Answer{{forloop.counter}}: {{answer.answer_content}}
+                     </h4>
+                   </div>
+               </div>
+             {% endfor %}
+         </ul>
   </div>
 </body>
 </html>
