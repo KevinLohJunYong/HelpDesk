@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mainPage.views import mainPageView
+from homeFeed.views import homeFeedView,addQuestion,answerFeedView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mainPage/',mainPageView),
+    path('homeFeed/',homeFeedView),
+    path('addQuestion/',addQuestion),
+    path('answerFeedView/<int:question_id>',answerFeedView)
 ]
