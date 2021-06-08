@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+</style>
+<body style="background-color:turquoise;">
+   <div style="margin-top:10%;">
+       <h2 align="center"> Sign Up </h2>
+       <form action="/createUser/" method="post"> {% csrf_token %}
+           <div style="margin-left:45%; margin-top:1%;">
+             <label for="username"> <b> Username </b> </label>
+             <input type="text" placeholder="Username" name="username" required>
+           </div>
+           <div style="margin-left:45%; margin-top:1%;">
+             <label for="email"> <b> Email </b> </label>
+             <input type="text" placeholder="Email" name="email" required>
+           </div>
+           <div style="margin-left:45%; margin-top:1%;">
+           <label for="password"> <b> Password </b> </label>
+           <input type="text" placeholder="Password" name="password" required>
+           </div>
+           <div style="margin-left:45%; margin-top:1%;">
+           <label for="confirm_password"> <b> Confirm Password </b> </label>
+           <input type="text" placeholder="Confirm Password" name="confirm_password" required>
+           </div>
+           <input type="submit" value="submit" style="margin-left:45%;">
+       </form>
+         {% if error %}
+             <h4 style="margin-left:40%;color:red;"> Passwords do not match! Try again. </h4>
+          {% else %}
+          {% endif %}
+   </div>
+</body>
+</html>
