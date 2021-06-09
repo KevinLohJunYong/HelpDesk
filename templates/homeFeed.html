@@ -17,14 +17,16 @@
         {% else %}
         {% endif %}
         {% if not is_authenticated %}
-
            {% if is_question %}
               <h3 align="center" style="color:red;"> Please login first to ask a question </h3>
            {% elif is_answer %}
               <h3 align="center" style="color:red;"> Please login first to answer a question </h3>
             {% else %}
               <h3 align="center" style="color:black;">
-                  Please click on the links to sign up or login first to ask or answer a question
+                  You are not logged in yet. <br>
+                  <div style="margin-top:1%;margin-bottom:1%;">
+                    Please click on the links to sign up or login first to ask or answer a question
+                  </div>
                   <div>
                     <div style="display:inline;font-size:medium">
                       <a href="/signUp/"> Sign Up Here! </a>
