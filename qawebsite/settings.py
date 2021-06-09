@@ -38,6 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainPage',
+    'homeFeed',
+    'signUpFeed',
+    'loginPage',
+    'User',
+    'leaderBoard',
 ]
 
 MIDDLEWARE = [
