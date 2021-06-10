@@ -22,28 +22,28 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 </style>
-<body style="background-color:turquoise;">
+<body style="background-color:orange;">
    <div style="margin-top:10%;">
        <h2 align="center"> Sign Up Form </h2>
        <form action="/createUser/" method="post"> {% csrf_token %}
-           <div class="container">
-           <div style="margin-top:1%;">
+           <div>
+           <div style="margin-top:2%;width:30%;margin-left:40%;">
              <label style="font-size:large;" for="username"> <b> Username </b> </label>
              <input type="text" placeholder="Username" name="username" required>
            </div>
-           <div style="margin-top:1%;">
+           <div style="margin-top:1%;width:30%;margin-left:40%;">
              <label style="font-size:large;" for="email"> <b> Contact Email </b> </label>
              <input type="text" placeholder="Email" name="email" required>
            </div>
-           <div style="margin-top:1%;">
+           <div style="margin-top:1%;width:30%;margin-left:40%;">
            <label style="font-size:large;" for="password"> <b> Password </b> </label>
            <input type="text" placeholder="Password" name="password" required>
            </div>
-           <div style="margin-top:1%;">
+           <div style="margin-top:1%;width:30%;margin-left:40%;">
            <label style="font-size:large;" for="confirm_password"> <b> Confirm Password </b> </label>
            <input type="text" placeholder="Confirm Password" name="confirm_password" required>
            </div>
-           <input type="submit" value="Submit" style="margin-left:38%;width:20%;font-size:large;background-color:orange;">
+           <input type="submit" value="Sign Up" style="margin-left:44%;width:20%;font-size:large;background-color:orange;">
            </div>
        </form>
          {% if error %}

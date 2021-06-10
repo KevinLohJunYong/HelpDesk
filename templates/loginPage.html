@@ -22,22 +22,26 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 </style>
-<body style="background-color:turquoise;">
+<body style="background-color:orange;">
    <div style="margin-top:10%;">
        <h2 align="center"> Login Form </h2>
        <form action="/loginUser/" method="post"> {% csrf_token %}
-           <div class="container">
-           <div style="margin-top:1%;">
+           <div>
+           <div style="margin-top:2%;width:30%;margin-left:40%;">
              <label style="font-size:large;" for="username"> <b> Username </b> </label>
              <input type="text" placeholder="Username" name="username" required>
            </div>
-           <div style="margin-top:1%;">
+           <div style="margin-top:1%;width:30%;margin-left:40%;">
            <label style="font-size:large;" for="password"> <b> Password </b> </label>
            <input type="text" placeholder="Password" name="password" required>
            </div>
-           <input type="submit" value="Submit" style="margin-left:38%;width:20%;font-size:large;background-color:orange;">
+           <input type="submit" value="Login" style="margin-left:44%;width:20%;font-size:large;background-color:orange;">
            </div>
        </form>
+       {% if invalid_credentials %}
+          <h4 style="margin-left:40%;color:red;"> Invalid Credentials. Please try again. </h4>
+       {% else %}
+       {% endif %}
    </div>
 </body>
 </html>
