@@ -31,8 +31,6 @@ def addQuestion(request):
 def answerFeedView(request,question_id):
     if isLoggedIn(request):
       corresponding_question = Question.objects.get(id=question_id)
-      new_answer = Answer(answer_content=request.POST['answer_content'],question=corresponding_question)
-      new_answer.save()
       all_answers_for_question = Answer.objects.filter(question=corresponding_question)
       return render(request,
                   'answerFeed.html',

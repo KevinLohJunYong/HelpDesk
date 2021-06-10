@@ -74,10 +74,7 @@
                   </h4>
                </div>
             <div class="panel-body">
-               <form action="/answerFeedView/{{question.id}}" method="post"> {% csrf_token %}
-                   <input type="text" name="answer_content">
-                  <input type="submit" value="Answer this question"/>
-              </form>
+              <a href="/answerFeedView/{{question.id}}" class="btn btn-info" role="button"> View </a>
           </div>
               </div>
         {% endfor %}
