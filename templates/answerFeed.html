@@ -65,7 +65,10 @@
   </nav>
 <div class="container">
   <div class="panel-group">
-      <h2 align="center"> {{question.question_name}} <h2>
+      <h2 align="center"> {{question.question_name}}  <button type="button" style="float:right;" class="btn btn-success btn-lg" data-toggle="modal" data-target="#writeAnswerModel">
+               Respond
+            </button> <h2>
+
          <ul>
              {% for answer in all_answers_for_question %}
                <div class="panel panel-default">
@@ -80,6 +83,27 @@
          </ul>
   </div>
 </div>
+
+<div class="modal fade" id="writeAnswerModel" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"> Thanks for your kindness to help! </h4>
+        </div>
+        <div class="modal-body">
+           <form action="/addAnswer/{{question.id}}" method="post"> {% csrf_token %}
+               <div class="form-group">
+                   <input type="text" class="form-control" placeholder="Type your response here" name="answer_content">
+               </div>
+               <div class="model-footer">
+                   <button type="submit" class="btn btn-info" value="Submit"> Submit </button>
+               </div>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
 

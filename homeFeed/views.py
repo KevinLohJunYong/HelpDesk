@@ -28,6 +28,12 @@ def addQuestion(request):
       is_question = True
       return render(request,'signUpFeed.html',{'is_authenticated':is_authenticated,'is_question':is_question})
 
+def addAnswer(request,question_id):
+    corresponding_question = Question.objects.get(id=question_id)
+    answer = Answer(question=corresponding_question,answer_content=request.POST['answer_content'])
+    answer.save()
+    return HttpResponseRedirect('/answerFeedView/%d' % question_id)
+
 def answerFeedView(request,question_id):
     if isLoggedIn(request):
       corresponding_question = Question.objects.get(id=question_id)
