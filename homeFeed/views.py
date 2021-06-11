@@ -38,11 +38,15 @@ def answerFeedView(request,question_id):
     if isLoggedIn(request):
       corresponding_question = Question.objects.get(id=question_id)
       all_answers_for_question = Answer.objects.filter(question=corresponding_question)
+      username = request.user.username
       return render(request,
                   'answerFeed.html',
-                  {'all_answers_for_question':all_answers_for_question,'question':Question.objects.get(id=question_id)}
+                  {'all_answers_for_question':all_answers_for_question,
+                   'question':Question.objects.get(id=question_id),
+                   'username': username
+                   }
                   )
     else:
         is_authenticated = False
         is_answer = True
-        return render(request, 'homeFeed.html', {'is_authenticated': is_authenticated, 'is_question': is_answer})
+        return render(request, 'answerFeed.html', {'is_authenticated': is_authenticated, 'is_question': is_answer})

@@ -68,13 +68,12 @@
       <h2 align="center"> {{question.question_name}}  <button type="button" style="float:right;" class="btn btn-success btn-lg" data-toggle="modal" data-target="#writeAnswerModel">
                Respond
             </button> <h2>
-
          <ul>
              {% for answer in all_answers_for_question %}
                <div class="panel panel-default">
                    <div class="panel-body">
                      <h4 style="margin-left:1%">
-                       Answer{{forloop.counter}}: {{answer.answer_content}}
+                       {{username}} replies: {{answer.answer_content}}
                          <a href="/upvote/" class="btn btn-info" role="button" style="float:right"> Upvote </a>
                      </h4>
                    </div>
