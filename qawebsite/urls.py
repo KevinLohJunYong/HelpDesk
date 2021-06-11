@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from homeFeed.views import homeFeedView,addQuestion,addAnswer,answerFeedView,logoutUser
+from homeFeed.views import homeFeedView,addQuestion,addAnswer,answerFeedView,logoutUser,upvoteUser
 from signUpFeed.views import signUpFeedView,createUser
 from loginPage.views import loginPageView,loginUser
 from leaderBoard.views import leaderBoardView
@@ -31,5 +31,6 @@ urlpatterns = [
     path('login/',loginPageView),
     path('loginUser/',loginUser),
     path('logoutUser/',logoutUser),
-    path('leaderBoard/',leaderBoardView)
+    path('leaderBoard/',leaderBoardView),
+    path('upvote/<str:username>',upvoteUser)
 ]

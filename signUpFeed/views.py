@@ -14,7 +14,7 @@ def createUser(request):
     confirm_password = request.POST['confirm_password']
     if password == confirm_password:
         base_user = User.objects.create_user(username,email,password)
-        user = BaseUser(base_user=base_user,points=0)
+        user = BaseUser(base_user=base_user,username=username,password=password,points=0)
         user.save()
         return homeFeedView(request)
     else:

@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect,Http404
 from .models import Question, Answer
 from django.shortcuts import render
 from django.contrib.auth import logout
+from User.models import BaseUser
 
 def isLoggedIn(request):
     return request.user.is_authenticated
@@ -30,7 +31,8 @@ def addQuestion(request):
 
 def addAnswer(request,question_id):
     corresponding_question = Question.objects.get(id=question_id)
-    answer = Answer(question=corresponding_question,answer_content=request.POST['answer_content'])
+    answer_content = request.user.username + " replies: " + request.POST['answer_content']
+    answer = Answer(question=corresponding_question,answer_content=answer_content)
     answer.save()
     return HttpResponseRedirect('/answerFeedView/%d' % question_id)
 
@@ -38,15 +40,17 @@ def answerFeedView(request,question_id):
     if isLoggedIn(request):
       corresponding_question = Question.objects.get(id=question_id)
       all_answers_for_question = Answer.objects.filter(question=corresponding_question)
-      username = request.user.username
       return render(request,
                   'answerFeed.html',
                   {'all_answers_for_question':all_answers_for_question,
                    'question':Question.objects.get(id=question_id),
-                   'username': username
                    }
                   )
     else:
         is_authenticated = False
         is_answer = True
         return render(request, 'answerFeed.html', {'is_authenticated': is_authenticated, 'is_question': is_answer})
+
+def upvoteUser(request,username):
+    base_user = BaseUser.objects.get(username=username)
+    base_user.manage_upvote
